@@ -1,16 +1,25 @@
 /* -------------------------------------------------------------------------- */
-/*                            values and variables                            */
+/*                                 Data Types                                 */
 /* -------------------------------------------------------------------------- */
 
-// NOTE  use camelCase in JS
-let firstName = "Amir"
-let lastName = "Khaleghi"
-console.log(firstName, lastName)
+/* --------------------------------- boolean -------------------------------- */
+let javascriptIsFun = true;
+console.log(javascriptIsFun)
+console.log(typeof javascriptIsFun)
 
-// NOTE  never use first capital letter in naming unless in OOP
-let myFirstJob = "Engineer"
-let myCurrentJob = "Developer"
-console.log(myCurrentJob)
-// NOTE  dont use follow naming
-let job1 = "Engineer"
-let job2 = "Developer"
+/* --------------------------------- number --------------------------------- */
+console.log(typeof 21213)
+
+/* --------------------------------- srting --------------------------------- */
+console.log(typeof "Amir")
+
+/* ----------------------------- reassign value ----------------------------- */
+javascriptIsFun = "Yes!"
+console.log(typeof javascriptIsFun)
+
+/* -------------------------------- undefined ------------------------------- */
+let year
+console.log(typeof year)
+
+/* ---------------------------------- object ---------------------------------- */
+console.log(typeof null)
