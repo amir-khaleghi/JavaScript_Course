@@ -1,15 +1,14 @@
 /* -------------------------------------------------------------------------- */
-/*                               Arrow functions                              */
+/*                      Functions Calling Other Functions                     */
 /* -------------------------------------------------------------------------- */
-
-const calcAge3 = birthYeah => 2037 - birthYeah;
-const age3 = calcAge3(1991);
-console.log(age3);
-const yearsUntilRetirement = (birthYeah, firstName) => {
-    const age = 2037 - birthYeah;
-    const retirement = 65 - age;
-    // return retirement;
-    return `${firstName} retires in ${retirement} years`;
+function cutFruitPieces(fruit) {
+    return fruit * 4;
 }
-console.log(yearsUntilRetirement(1991, 'Jonas'));
-console.log(yearsUntilRetirement(1980, 'Bob'));
+
+function fruitProcessor(apples, oranges) {
+    const applePieces = cutFruitPieces(apples);
+    const orangePieces = cutFruitPieces(oranges);
+    const juice = `Juice with ${applePieces} piece of apple and ${orangePieces} pieces of orange.`;
+    return juice;
+}
+console.log(fruitProcessor(2, 3));
