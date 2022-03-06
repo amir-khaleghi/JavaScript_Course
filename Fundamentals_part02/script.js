@@ -1,73 +1,17 @@
 /* -------------------------------------------------------------------------- */
-/*                             Coding Challenge #3                            */
+/*                           Iteration: The for Loop                          */
 /* -------------------------------------------------------------------------- */
-
-/*
-Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations! Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
-1. For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith)
-2. Create a 'calcBMI' method on each object to calculate the BMI (the same method on both objects). Store the BMI value to a property, and also return it from the method.
-3. Log to the console who has the higher BMI, together with the full name and the respective BMI. Example: "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
-TEST DATA: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
-GOOD LUCK 😀
-*/
-
-// 1. For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith)
-const mark = {
-    fullName: 'Mark Miller',
-    mass: 95,
-    height: 1.88,
-    calcBMI: function () {
-        return this.bmi = this.mass / this.height ** 2;
-    }
+// console.log('Lifting weights repetition 1 🏋️‍♀️');
+// console.log('Lifting weights repetition 2 🏋️‍♀️');
+// console.log('Lifting weights repetition 3 🏋️‍♀️');
+// console.log('Lifting weights repetition 4 🏋️‍♀️');
+// console.log('Lifting weights repetition 5 🏋️‍♀️');
+// console.log('Lifting weights repetition 6 🏋️‍♀️');
+// console.log('Lifting weights repetition 7 🏋️‍♀️');
+// console.log('Lifting weights repetition 8 🏋️‍♀️');
+// console.log('Lifting weights repetition 9 🏋️‍♀️');
+// console.log('Lifting weights repetition 10 🏋️‍♀️');
+// for loop keeps running while condition is TRUE
+for (let rep = 1; rep <= 30; rep++) {
+    console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
 }
-const john = {
-    fullName: 'John Smith',
-    mass: 85,
-    height: 1.76,
-    calcBMI: function () {
-        return this.bmi = this.mass / this.height ** 2;
-    }
-}
-mark.calcBMI()
-john.calcBMI()
-// if (john.bmi)
-console.log(mark.bmi)
-console.log(mark)
-
-// "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
-if (john.bmi > mark.bmi) {
-    console.log(`${john.fullName}'s BMI(${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})!`)
-} else {
-    console.log(`${mark.fullName}'s BMI(${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})!`)
-}
-
-
-
-
-// const mark = {
-//   fullName: 'Mark Miller',
-//   mass: 78,
-//   height: 1.69,
-//   calcBMI: function () {
-//     this.bmi = this.mass / this.height ** 2;
-//     return this.bmi;
-//   }
-// };
-// const john = {
-//   fullName: 'John Smith',
-//   mass: 92,
-//   height: 1.95,
-//   calcBMI: function () {
-//     this.bmi = this.mass / this.height ** 2;
-//     return this.bmi;
-//   }
-// };
-// mark.calcBMI();
-// john.calcBMI();
-// console.log(mark.bmi, john.bmi);
-// // "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
-// if (mark.bmi > john.bmi) {
-//   console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s BMI (${john.bmi})`)
-// } else if (john.bmi > mark.bmi) {
-//   console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})`)
-// }
