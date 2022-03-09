@@ -1,14 +1,15 @@
-'use strict';
 /* -------------------------------------------------------------------------- */
-/*                     Selecting and Manipulating Elements                    */
+/*                            Handling Click Events                           */
 /* -------------------------------------------------------------------------- */
 
-/* ---------- querySelector is a Nodelist selector not HTMLcollection --------- */
-console.log(document.querySelector(".message"))
+/* ---------------------------- addEventListener ---------------------------- */
+document.querySelector('.check').addEventListener('click', function () {
+    const guess = Number(document.querySelector(".guess").value);
+    console.log(guess, typeof guess);
 
-/* -- to reach the text we use another dot and dots read from left to right - */
-console.log(document.querySelector(".message").textContent)
+    /* ------------------------------- empty input ------------------------------ */
+    if (!guess) {
+        document.querySelector(".message").textContent = "🤷‍♂️No Number"
+    }
 
-/* ---------------------------- manipulating Data --------------------------- */
-document.querySelector(".message").textContent = "Correct!.."
-document.querySelector(".guess").value = 76
+})
