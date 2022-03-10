@@ -11,8 +11,14 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 // document.querySelector('.number').textContent = "?";
 // score number
 let score = 20;
-// highscore
+// highscore 
 let highScore = 0;
+/* -------------------------------------------------------------------------- */
+/*                     CREATING FUNCTIONS for cleaner code                    */
+/* -------------------------------------------------------------------------- */
+const displayMessage = function (message) {
+    document.querySelector('.message').textContent = message;
+};
 
 
 /* ----------- generating guess number and compare with secret number ---------- */
@@ -20,7 +26,7 @@ document.querySelector('.check').addEventListener('click', function () {
     const guess = Number(document.querySelector('.guess').value);
     // when there is no input
     if (!guess) {
-        document.querySelector('.message').textContent = 'No Number!!!';
+        displayMessage('No Number!!!');
 
         // when player won
     } else if (guess === secretNumber) {
@@ -41,6 +47,27 @@ document.querySelector('.check').addEventListener('click', function () {
         }
 
         // when guess number is higher
+
+        /* -------------------------------------------------------------------------- */
+        /*                                 REFACTORING                                */
+        /* -------------------------------------------------------------------------- */
+        // When guess is wrong
+        // } else if (guess !== secretNumber) {
+        //     if (score > 1) {
+        //         // document.querySelector('.message').textContent =
+        //         // guess > secretNumber ? '📈 Too high!' : '📉 Too low!';
+        //         displayMessage(guess > secretNumber ? '📈 Too high!' : '📉 Too low!');
+        //         score--;
+        //         document.querySelector('.score').textContent = score;
+        //     } else {
+        //         // document.querySelector('.message').textContent = '💥 You lost the game!';
+        //         displayMessage('💥 You lost the game!');
+        //         document.querySelector('.score').textContent = 0;
+        //     }
+        // }
+        /* -------------------------------------------------------------------------- */
+        /*                                 REFACTORING                                */
+        /* -------------------------------------------------------------------------- */
     } else if (guess > secretNumber) {
         // score -= 1
         score--;
