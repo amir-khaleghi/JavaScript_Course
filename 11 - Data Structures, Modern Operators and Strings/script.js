@@ -1,4 +1,9 @@
 'use strict';
+// ────────────────────────────────────────────────────────────────────────────────
+/* -------------------------------------------------------------------------- */
+/*                            Destructuring Arrays                            */
+/* -------------------------------------------------------------------------- */
+// ────────────────────────────────────────────────────────────────────────────────
 
 /* -------------------- Data needed for a later exercise -------------------- */
 const flights =
@@ -13,8 +18,8 @@ const restaurant = {
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
   /* ----------------------------- create function ---------------------------- */
   order: function (starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  }
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
+  },
 
   openingHours: {
     thu: {
@@ -56,3 +61,5 @@ console.log(main, secondary);
 console.log(main, secondary)
 /* ----------------------------- order function ----------------------------- */
 console.log(restaurant.order(2, 0))
+console.log(restaurant.order(0, 2))
+console.log(restaurant.order(0, 0))
