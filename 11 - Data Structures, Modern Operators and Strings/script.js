@@ -40,6 +40,11 @@ const restaurant = {
       `Order Recieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`
+    );
+  },
 };
 // ────────────────────────────────────────────────────────────────────────────────
 /* ----------------------------- Calling Method ----------------------------- */
@@ -49,46 +54,55 @@ restaurant.orderDelivery({
   mainIndex: 2,
   starterIndex: 2,
 });
+
 // ────────────────────────────────────────────────────────────────────────────────
 /* -------------------------------------------------------------------------- */
-/*                            Destructuring Objects                           */
+/*                         The Spread Operator (...)                       */
 /* -------------------------------------------------------------------------- */
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
 // ────────────────────────────────────────────────────────────────────────────────
-// ────────────────────────────────────────────────────────────────────────────────
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
-console.log(restaurantName, hours, tags);
-// ────────────────────────────────────────────────────────────────────────────────
-// setting defaults
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
-// ────────────────────────────────────────────────────────────────────────────────
-/* --------------------------- mutating variables --------------------------- */
-let a = 111;
-let b = 999;
-const obj = {
-  a: 23,
-  b: 7,
-  c: 14,
-};
+const arr = [4, 5, 6];
+const badNewArr = [1, 2, 3, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
 
-/* ---------------------------- USING PARANTHESIS --------------------------- */
-({ a, b } = obj);
+//spread operator
+const newArr = [1, 2, 3, ...arr];
+console.log(newArr);
 
-/* ----------------------------- nested objects ----------------------------- */
-const {
-  sat: { open, close },
-} = openingHours;
-console.log(open, close);
-// const {
-// fri: { open, close },  // can't use identifier
-// } = openingHours;
-const {
-  sat: { open: o, close: c },
-} = openingHours;
-console.log(o, c);
+//print individually array
+console.log(...newArr);
+console.log(1, 2, 3, 4, 5, 6);
+
+//copying
+const newMenu = [...restaurant.mainMenu, "Gnocci"];
+console.log(newMenu);
+const mainMenuCopy = [...restaurant.mainMenu];
+
+//join 2 arrays
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+//Iterables: arrays, strings, maps, sets.Not objects
+const str = "Jonas";
+const letters = [...str, " ", "S."];
+console.log(letters);
+//can't use spread in template literal
+// console.log(`${...str}`)
+/* ----------------------------- ordering pasta ----------------------------- */
+
+const ingredients = [
+  prompt("Let's make pasta! Ingredient1?"),
+  prompt("Ingredient 2?"),
+  prompt("Ingredient 3?"),
+];
+
+restaurant.orderPasta(...ingredients); //ingredients doesn't work alone. should use spread.
+
+/* --------------------------- objects and spread --------------------------- */
+const newRestaurant = { foundedIn: 1994, ...restaurant, founder: "Amir" };
+console.log(newRestaurant);
+
+//copying
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = "Kerman Espakho";
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
