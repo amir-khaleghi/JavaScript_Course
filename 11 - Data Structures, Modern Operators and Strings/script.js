@@ -45,6 +45,10 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`
     );
   },
+  orderPizza: function (mainIngredient, ...otherIngredient) {
+    console.log(mainIngredient);
+    console.log(otherIngredient);
+  },
 };
 // ────────────────────────────────────────────────────────────────────────────────
 /* ----------------------------- Calling Method ----------------------------- */
@@ -55,54 +59,36 @@ restaurant.orderDelivery({
   starterIndex: 2,
 });
 
-// ────────────────────────────────────────────────────────────────────────────────
 /* -------------------------------------------------------------------------- */
-/*                         The Spread Operator (...)                       */
+/*                         Rest Pattern and Parameters                        */
 /* -------------------------------------------------------------------------- */
-// ────────────────────────────────────────────────────────────────────────────────
-const arr = [4, 5, 6];
-const badNewArr = [1, 2, 3, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
+// 1) Destructuring
+/* ------------------- SPREAD, because on RIGHT side of = ------------------- */
+const arr = [1, 2, ...[3, 4]];
 
-//spread operator
-const newArr = [1, 2, 3, ...arr];
-console.log(newArr);
-
-//print individually array
-console.log(...newArr);
-console.log(1, 2, 3, 4, 5, 6);
-
-//copying
-const newMenu = [...restaurant.mainMenu, "Gnocci"];
-console.log(newMenu);
-const mainMenuCopy = [...restaurant.mainMenu];
-
-//join 2 arrays
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
-
-//Iterables: arrays, strings, maps, sets.Not objects
-const str = "Jonas";
-const letters = [...str, " ", "S."];
-console.log(letters);
-//can't use spread in template literal
-// console.log(`${...str}`)
-/* ----------------------------- ordering pasta ----------------------------- */
-
-const ingredients = [
-  prompt("Let's make pasta! Ingredient1?"),
-  prompt("Ingredient 2?"),
-  prompt("Ingredient 3?"),
+/* --------------------- REST, because on LEFT side of = -------------------- */
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
 ];
+console.log(pizza, risotto, otherFood);
 
-restaurant.orderPasta(...ingredients); //ingredients doesn't work alone. should use spread.
+/* --------------------------------- Objects -------------------------------- */
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
 
-/* --------------------------- objects and spread --------------------------- */
-const newRestaurant = { foundedIn: 1994, ...restaurant, founder: "Amir" };
-console.log(newRestaurant);
-
-//copying
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = "Kerman Espakho";
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+/* ------------------------------ 2) Functions ------------------------------ */
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+const x = [23, 5, 7];
+add(...x);
+restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
+restaurant.orderPizza("mushrooms");
