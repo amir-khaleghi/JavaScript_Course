@@ -51,19 +51,40 @@ const restaurant = {
   },
 };
 // ────────────────────────────────────────────────────────────────────────────────
-/* ----------------------------- Calling Method ----------------------------- */
-restaurant.orderDelivery({
-  time: "22:30",
-  address: "Via del sole, 21",
-  mainIndex: 2,
-  starterIndex: 2,
-});
 /* -------------------------------------------------------------------------- */
-/*                       The Nullish Coalescing Operator                      */
+/*                        Logical Assignment Operators                        */
 /* -------------------------------------------------------------------------- */
-restaurant.numGuests = 0;
-const guests = restaurant.numGuests || 10 ;
-console.log(guests);
-// Nullish: null and undefined (NOT 0 or '')
-const guestCorrect = restaurant.numGuests ?? 10;
-console.log(guestCorrect);
+// ────────────────────────────────────────────────────────────────────────────────
+const rest1 = {
+  name: "Capri",
+  numGuests: 20,
+};
+
+const rest2 = {
+  name: "Amir",
+  owner: "Elahi",
+};
+
+/* ------------------------- or Assignment operator ------------------------- */
+rest1.numGuest = rest1.numGuests || 10;
+console.log("🚀 ~ file: script.js ~ line 69 ~ rest1", rest1);
+rest2.numGuest = rest2.numGuests || 10;
+console.log("🚀 ~ file: script.js ~ line 71 ~ rest2", rest2);
+// ────────────────────────────────────────────────────────────────────────────────
+rest1.numGuests ||= 10;
+rest2.numGuest ||= 10;
+console.log("🚀 ~ file: script.js ~ line 76 ~ rest2", rest2);
+console.log("🚀 ~ file: script.js ~ line 69 ~ rest1", rest1);
+
+/* ------------------- nullish assignment operator(null or undefined ) ------------------- */
+rest1.numGuests ??= 10;
+rest2.numGuest ??= 10;
+
+/* ------------------------- and assignment operator ------------------------ */
+// rest1.owner = rest1.owner && '<ANONYMOUS';
+// rest2.owner = rest2.owner && '<ANONYMOUS';
+
+rest1.numGuest &&= "<ANONYMOUS";
+console.log("🚀 ~ file: script.js ~ line 88 ~ rest1", rest1)
+rest2.numGuest &&= "<ANONYMOUS";
+console.log("🚀 ~ file: script.js ~ line 90 ~ rest2", rest2)
