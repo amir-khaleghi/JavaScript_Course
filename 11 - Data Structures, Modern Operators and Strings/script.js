@@ -2,7 +2,7 @@
 /* -------------------------------------------------------------------------- */
 /*                           Enhanced Object Literal                          */
 /* -------------------------------------------------------------------------- */
-const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]
+const weekdays = ["sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
 const openingHours = {
   [weekdays[4]]: {
     open: 12,
@@ -12,7 +12,7 @@ const openingHours = {
     open: 11,
     close: 23,
   },
-  [`day_${2+4}`]: {
+  [weekdays[0]]: {
     open: 0, // Open 24 hours
     close: 24,
   },
@@ -24,8 +24,8 @@ const restaurant = {
   categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
   starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
   mainMenu: ["Pizza", "Pasta", "Risotto"],
-/* ----------------- new way of writing functions in object ----------------- */
-  order(starterIndex, mainIndex) { 
+  /* ----------------- new way of writing functions in object ----------------- */
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
   openingHours,
@@ -38,6 +38,28 @@ const restaurant = {
 };
 // ────────────────────────────────────────────────────────────────────────────────
 
+/* -------------------------------------------------------------------------- */
+/*                              Optional Chaining                             */
+/* -------------------------------------------------------------------------- */
+const days = ["sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+
+for (const day of days) {
+  // console.log(day)
+  const open = restaurant.openingHours[day]?.open ?? "closed";
+  // console.log("🚀 ~ file: script.js ~ line 49 ~ open", open);
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+/* --------------------------------- Methods -------------------------------- */
+console.log(restaurant.order?.(0, 1) ?? "Method doesn't exist");
+console.log(restaurant.orderPizza?.(0, 1) ?? "Method doesn't exist");
+
+/* --------------------------------- Arrays --------------------------------- */
+const users = [{ name: "Jonas", email: "hello@gmail.com" }];
+console.log(users[0]?.name ?? "User array empty!");
+
+if (users.length > 0) console.log(users[0].name);
+else console.log("User array empty!");
 
 // ────────────────────────────────────────────────────────────────────────────────
 
