@@ -1,3 +1,3 @@
 # JavaScript 
 
-this a repository for JavaScript course that I have started. 
+This a repository for JavaScript course that I have started.
