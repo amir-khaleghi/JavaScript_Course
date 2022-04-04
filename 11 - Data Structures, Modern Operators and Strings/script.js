@@ -42,6 +42,52 @@ const restaurant = {
 // ────────────────────────────────────────────────────────────────────────────────
 // ────────────────────────────────────────────────────────────────────────────────
 
+//NOTE Sets
+/* -------------------------------------------------------------------------- */
+/*                                    Sets                                    */
+/* -------------------------------------------------------------------------- */
+
+const ordersSet = new Set([
+  "Pasta",
+  "Pasta",
+  "Pasta",
+  "Risotto",
+  "Pasta",
+  "Pizza",
+]);
+console.log("🚀 ~ file: script.js ~ line 59 ~ ordersSet", ordersSet);
+
+console.log(new Set("Jonas"));
+
+console.log(ordersSet.size); //33
+
+console.log(ordersSet.has("Pizza"));
+console.log(ordersSet.has("Bread"));
+
+ordersSet.add("Garlic Bread");
+ordersSet.add("Garlic Bread");
+console.log(ordersSet);
+
+ordersSet.delete("Risotto");
+console.log(ordersSet);
+
+// ordersSet.clear();
+
+for (const order of ordersSet) console.log(order);
+
+/* --------------------------------- example -------------------------------- */
+const staff = ["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"];
+
+const staffUnique = [...new Set(staff)];
+
+console.log(staffUnique);
+
+console.log(
+  new Set(["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"]).size
+);
+   
+console.log(new Set('Amir Khaleghi').size);
+
 //NOTE Challenge 2
 /* -------------------------------------------------------------------------- */
 /*                             Coding Challenge 2                             */
@@ -52,7 +98,7 @@ Let's continue with our football betting app!
 😉
 
 GOOD LUCK 😀
-*/
+
 
 const game = {
   team1: "Bayern Munich",
@@ -140,6 +186,8 @@ const entries = Object.entries(scorers);
 for (const [key, score] of entries) {
   console.log(`${key} : ${score}`);
 }
+
+*/
 
 //NOTE lOOPING Objects
 /* -------------------------------------------------------------------------- */
