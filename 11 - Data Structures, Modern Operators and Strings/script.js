@@ -42,11 +42,59 @@ const restaurant = {
 // ────────────────────────────────────────────────────────────────────────────────
 // ────────────────────────────────────────────────────────────────────────────────
 
+//NOTE  Maps
+/* -------------------------------------------------------------------------- */
+/*                              Maps Fundamentals                             */
+/* -------------------------------------------------------------------------- */
+//new Map()
+const rest = new Map();
+//.set()
+rest.set("name", "Classico Italiano");
+rest.set(1, "Firenze, Italy");
+console.log(rest.set(2, "Kerman,hematifar"));
+// ────────────────────────────────────────────────────────────────────────────────
+rest
+  .set("categories", ["Iranian", "Japanese", "Vegetarian", "Organic"])
+  .set("open", 11)
+  .set("close", 23)
+  .set(true, "We are Open!")
+  .set(false, "We are Closed!");
+
+// console.log(rest.get(true));
+// ────────────────────────────────────────────────────────────────────────────────
+const time = 21;
+//.get()
+console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
+// ────────────────────────────────────────────────────────────────────────────────
+//.has()
+console.log(rest.has("categories"));
+// ────────────────────────────────────────────────────────────────────────────────
+//.delete()
+rest.delete(2);
+console.log(rest);
+// ────────────────────────────────────────────────────────────────────────────────
+//.size
+console.log(rest.size);
+// ────────────────────────────────────────────────────────────────────────────────
+//.clear()
+// rest.clear();
+// ────────────────────────────────────────────────────────────────────────────────
+//Does it Work?
+rest.set([1,2],'Test');
+console.log(rest.get([1,2])); // Undefined beacause it is not the same in the heap
+
+const arr = [1,2];
+rest.set(arr,'Test');
+console.log(rest.get(arr));// now works beacause arr refers to same Place in the memory
+// ────────────────────────────────────────────────────────────────────────────────
+// usage of Map in Dom
+rest.set(document.querySelector('h1'),'Heading'); 
+
 //NOTE Sets
 /* -------------------------------------------------------------------------- */
 /*                                    Sets                                    */
 /* -------------------------------------------------------------------------- */
-
+/*
 const ordersSet = new Set([
   "Pasta",
   "Pasta",
@@ -75,7 +123,8 @@ console.log(ordersSet);
 
 for (const order of ordersSet) console.log(order);
 
-/* --------------------------------- example -------------------------------- */
+/* --------------------------------- example -------------------------------- 
+
 const staff = ["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"];
 
 const staffUnique = [...new Set(staff)];
@@ -88,6 +137,7 @@ console.log(
    
 console.log(new Set('Amir Khaleghi').size);
 
+*/
 //NOTE Challenge 2
 /* -------------------------------------------------------------------------- */
 /*                             Coding Challenge 2                             */
