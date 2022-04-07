@@ -1,4 +1,5 @@
 "use strict";
+//SECTION DATA STRUCTURE
 /* -------------------------------------------------------------------------- */
 /*                           Enhanced Object Literal                          */
 /* -------------------------------------------------------------------------- */
@@ -40,21 +41,76 @@ const restaurant = {
 // ────────────────────────────────────────────────────────────────────────────────
 // ────────────────────────────────────────────────────────────────────────────────
 // ────────────────────────────────────────────────────────────────────────────────
-// ────────────────────────────────────────────────────────────────────────────────'
+// ────────────────────────────────────────────────────────────────────────────────
 
-//NOTE Challenge 3
+
+
+
+
+//ANCHOR Working With Strings
+/* -------------------------------------------------------------------------- */
+/*                            Working With Strings part1                      */
+/* -------------------------------------------------------------------------- */
+// ────────────────────────────────────────────────────────────────────────────────
+const airlines = "TAP Air Portugal";
+const plane = "A320";
+console.log(plane[0]);
+console.log(plane[1]);
+console.log("B730"[0]);
+
+// length
+// ────────────────────────────────────────────────────────────────────────────────
+console.log(airlines.length);
+console.log("Amir".length);
+
+// indexOf()
+// ────────────────────────────────────────────────────────────────────────────────
+console.log(airlines.indexOf("r"));
+console.log(airlines.indexOf("Portugal"));
+console.log(airlines.indexOf("portugal")); // -1 beacuse doesn't exist
+
+// lastIndexOf()
+// ────────────────────────────────────────────────────────────────────────────────
+console.log(airlines.lastIndexOf("r"));
+
+// slice()
+// ────────────────────────────────────────────────────────────────────────────────
+console.log(airlines.slice(4)); // 4 is the start include 4
+console.log(airlines.slice(4, 7)); // 7 is the end exclude 7
+
+console.log(airlines.slice(0, airlines.indexOf(" ")));
+console.log(airlines.slice(airlines.lastIndexOf(" ") + 1));
+
+console.log(airlines.slice(-2));
+console.log(airlines.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  const s = seat.slice(-1);
+  if (s === "B" || s === "E") console.log("You got middle Seat 😥");
+  else console.log("You got Lucky 😎");
+};
+
+checkMiddleSeat('11B')
+checkMiddleSeat('11C')
+checkMiddleSeat('11E')
+checkMiddleSeat('11A')
+console.log('----------------------------------------------------------------------')
+//new String
+// ────────────────────────────────────────────────────────────────────────────────
+console.log(new String('Jonas')); 
+//NOTE #01
+// everytime we call a method on string JS convert the string to an object then after finishing operation it convert it back
+console.log(typeof new String('Jonas')); 
+
+//ANCHOR Challenge 3
 /* -------------------------------------------------------------------------- */
 /*                                 Challenge 3                                */
 /* -------------------------------------------------------------------------- */
-
 /* 
 Let's continue with our football betting app! This time, we have a map with a log of the events that happened during the game. The values are the events themselves, and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
-
-
-4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
-      [FIRST HALF] 17: ⚽️ GOAL
 GOOD LUCK 😀
 */
+/* 
 const gameEvents = new Map([
   [17, "⚽️ GOAL"],
   [36, "🔁 Substitution"],
@@ -80,32 +136,29 @@ gameEvents.delete(64);
 // ────────────────────────────────────────────────────────────────────────────────
 // 3. Print the following string to the console: "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
 // ────────────────────────────────────────────────────────────────────────────────
-console.log(`An event happened, on average, every ${90/gameEvents.size} minutes`)
+console.log(
+  `An event happened, on average, every ${90 / gameEvents.size} minutes`
+);
 const time = [...gameEvents.keys()].pop();
 console.log(time);
-console.log(`An event happened, on average, every ${time/gameEvents.size} minutes`)
+console.log(
+  `An event happened, on average, every ${time / gameEvents.size} minutes`
+);
 // ────────────────────────────────────────────────────────────────────────────────
 // 4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
-      // [FIRST HALF] 17: ⚽️ GOAL
+// [FIRST HALF] 17: ⚽️ GOAL
 // ────────────────────────────────────────────────────────────────────────────────
 // for (const [min, event] of gameEvents) {
 //   if (min<=45) {console.log(`[FIRST HALF] ${min}: ${event}`)}
 //   else {console.log(`[SECOND HALF] ${min}: ${event}`)}
 // }
-for (const [min, event] of gameEvents) {
-  const half = min <= 45 ? 'FIRST' : 'SECOND';
-  console.log(`[${half} HALF] ${min}: ${event}`)
-}
 
-/*
-// 4.
 for (const [min, event] of gameEvents) {
-  const half = min <= 45 ? 'FIRST' : 'SECOND';
+  const half = min <= 45 ? "FIRST" : "SECOND";
   console.log(`[${half} HALF] ${min}: ${event}`);
 }
 */
-
-//NOTE Which Data Structure to use ?
+//ANCHOR Which Data Structure to use ?
 /* -------------------------------------------------------------------------- */
 /*                        Which Data Structure to use ?                       */
 /* -------------------------------------------------------------------------- */
@@ -116,7 +169,7 @@ for (const [min, event] of gameEvents) {
 // Arrays and Maps for
 // when you want to describe data
 
-//NOTE Map ITERATION
+//ANCHOR Map ITERATION
 /* -------------------------------------------------------------------------- */
 /*                                Map ITERATION                               */
 /* -------------------------------------------------------------------------- */
@@ -158,7 +211,7 @@ console.log(question.get(question.get("correct") === answer));
 console.log([...question.entries()]);
 console.log([...question.keys()]);
 console.log([...question.values()]);
-//NOTE  Maps
+//ANCHOR  Maps
 */
 /* -------------------------------------------------------------------------- */
 /*                              Maps Fundamentals                             */
@@ -208,7 +261,7 @@ console.log(rest.get(arr));// now works beacause arr refers to same Place in the
 // usage of Map in Dom
 rest.set(document.querySelector('h1'),'Heading'); 
 */
-//NOTE Sets
+//ANCHOR Sets
 /* -------------------------------------------------------------------------- */
 /*                                    Sets                                    */
 /* -------------------------------------------------------------------------- */
@@ -256,7 +309,7 @@ console.log(
 console.log(new Set('Amir Khaleghi').size);
 
 */
-//NOTE Challenge 2
+//ANCHOR Challenge 2
 /* -------------------------------------------------------------------------- */
 /*                             Coding Challenge 2                             */
 /* -------------------------------------------------------------------------- */
@@ -330,7 +383,7 @@ console.log("🚀 ~ file: script.js ~ line 120 ~ average", average);
 //       Odd of victory Bayern Munich: 1.33
 //       Odd of draw: 3.25
 //       Odd of victory Borrussia Dortmund: 6.5
-// Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: Note how the odds and the game objects have the same property names
+// Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: ANCHOR how the odds and the game objects have the same property names
 
 for (const [team, odd] of Object.entries(game.odds)) {
   const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
@@ -357,7 +410,7 @@ for (const [key, score] of entries) {
 
 */
 
-//NOTE lOOPING Objects
+//ANCHOR lOOPING Objects
 /* -------------------------------------------------------------------------- */
 /*              Looping Objects_ Object Keys, Values, and Entries             */
 /* -------------------------------------------------------------------------- */
@@ -392,7 +445,7 @@ for (const [key, score] of entries) {
 //   console.log(`On ${key} we open at ${open} and close at ${close}`);
 // }
 
-//NOTE Optional Chaining
+//ANCHOR Optional Chaining
 /* -------------------------------------------------------------------------- */
 /*                              Optional Chaining                             */
 /* -------------------------------------------------------------------------- */
@@ -417,7 +470,7 @@ for (const [key, score] of entries) {
 // else console.log("User array empty!");
 
 // ────────────────────────────────────────────────────────────────────────────────
-//NOTE Looping Arrays
+//ANCHOR Looping Arrays
 
 /* -------------------------------------------------------------------------- */
 /*                       Looping Arrays the for of loop                       */
