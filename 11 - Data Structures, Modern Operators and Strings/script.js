@@ -43,37 +43,118 @@ const restaurant = {
 // ────────────────────────────────────────────────────────────────────────────────
 // ────────────────────────────────────────────────────────────────────────────────
 
+//ANCHOR Working With Strings part2
+/* -------------------------------------------------------------------------- */
+/*                         Working With Strings part2                         */
+/* -------------------------------------------------------------------------- */
+const airline = "TAP Air Portugal";
 
+//NOTE toLowerCase()
+//NOTE toUpperCase()
+// ────────────────────────────────────────────────────────────────────────────────
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
 
+//NOTE Fix Capitalization in name
+// ────────────────────────────────────────────────────────────────────────────────
+const passenger = "joNaS"; //Jonas
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(
+  "🚀 ~ file: script.js ~ line 61 ~ passengerCorrect:",
+  passengerCorrect
+);
 
+//NOTE Comparing Emails
+// ────────────────────────────────────────────────────────────────────────────────
+const email = "hello@jonas.io";
+const loginEmail = "Hello@Jonas.Io \n";
+const lowerEmail = loginEmail.toLowerCase();
 
-//ANCHOR Working With Strings
+//NOTE trim()
+// ────────────────────────────────────────────────────────────────────────────────
+const trimmedEmail = lowerEmail.trim();
+
+//NOTE use methods in a sequence
+// ────────────────────────────────────────────────────────────────────────────────
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(normalizedEmail === email);
+
+//NOTE replace()
+// ────────────────────────────────────────────────────────────────────────────────
+const priceGB = "288,43₤";
+const priceUS = priceGB.replace("₤", "$").replace(",", ".");
+console.log("priceUS:", priceUS);
+
+const announcement =
+  "ALL passengers come to boarding door 23. Boarding door 23!";
+
+console.log(announcement.replace("door", "gate"));
+console.log(announcement.replace(/door/g, "gate")); // g---global
+//NOTE replaceAll()
+// ────────────────────────────────────────────────────────────────────────────────
+console.log(announcement.replaceAll("door", "gate"));
+
+//STUB Booleans
+// ────────────────────────────────────────────────────────────────────────────────
+//NOTE includes()
+//NOTE startsWith()
+//NOTE endWith()
+// decision on parts of strings
+const plane = "Airbus A320neo";
+console.log(plane.includes("A320"));
+console.log(plane.includes("Boeing"));
+console.log(plane.startsWith("Air"));
+console.log(plane.startsWith("Air"));
+console.log(plane.startsWith("Aib"));
+
+if (plane.startsWith("Airbus") && plane.endsWith("neo")) {
+  console.log("Part of the NEW Airbus Family");
+}
+
+// NOTE Exercise
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+
+//ANCHOR Working With Strings part1
 /* -------------------------------------------------------------------------- */
 /*                            Working With Strings part1                      */
 /* -------------------------------------------------------------------------- */
 // ────────────────────────────────────────────────────────────────────────────────
+/*
 const airlines = "TAP Air Portugal";
 const plane = "A320";
 console.log(plane[0]);
 console.log(plane[1]);
 console.log("B730"[0]);
 
-// length
+//NOTE length
 // ────────────────────────────────────────────────────────────────────────────────
 console.log(airlines.length);
 console.log("Amir".length);
 
-// indexOf()
+//NOTE indexOf()
 // ────────────────────────────────────────────────────────────────────────────────
 console.log(airlines.indexOf("r"));
 console.log(airlines.indexOf("Portugal"));
-console.log(airlines.indexOf("portugal")); // -1 beacuse doesn't exist
+console.log(airlines.indexOf("portugal")); // -1 because doesn't exist
 
-// lastIndexOf()
+//NOTE lastIndexOf()
 // ────────────────────────────────────────────────────────────────────────────────
 console.log(airlines.lastIndexOf("r"));
 
-// slice()
+//NOTE slice()
 // ────────────────────────────────────────────────────────────────────────────────
 console.log(airlines.slice(4)); // 4 is the start include 4
 console.log(airlines.slice(4, 7)); // 7 is the end exclude 7
@@ -95,12 +176,13 @@ checkMiddleSeat('11C')
 checkMiddleSeat('11E')
 checkMiddleSeat('11A')
 console.log('----------------------------------------------------------------------')
-//new String
+//NOTE new String
 // ────────────────────────────────────────────────────────────────────────────────
 console.log(new String('Jonas')); 
-//NOTE #01
+//NOTE JS Behind the scene
 // everytime we call a method on string JS convert the string to an object then after finishing operation it convert it back
 console.log(typeof new String('Jonas')); 
+*/
 
 //ANCHOR Challenge 3
 /* -------------------------------------------------------------------------- */
@@ -163,18 +245,16 @@ for (const [min, event] of gameEvents) {
 /*                        Which Data Structure to use ?                       */
 /* -------------------------------------------------------------------------- */
 
-// objects and sets for
-// simple list and when you dont want to describe data
+//NOTE objects and sets for simple list and when you dont want to describe data
 
-// Arrays and Maps for
-// when you want to describe data
+//NOTE Arrays and Maps for when you want to describe data
 
 //ANCHOR Map ITERATION
 /* -------------------------------------------------------------------------- */
 /*                                Map ITERATION                               */
 /* -------------------------------------------------------------------------- */
 /*
-// use array in map─────────────────────────────────────────────────────────────
+//NOTE use array in map
 const question = new Map([
   ["question", "what is the best programming language in the world?"],
   [1, "C"],
@@ -185,17 +265,17 @@ const question = new Map([
   [false, "Try Again!"],
 ]);
 console.log(question);
-// add an array to a map ──────────────────────────────────────────────────────────
+//NOTE add an array to a map
 console.log(Object.entries(openingHours));
 const hoursMap = new Map(Object.entries(openingHours));
 console.log(hoursMap);
-// ITERATION ON A MAP ─────────────────────────────────────────────────────────────
+//NOTE ITERATION ON A MAP 
 for (const [key, value] of question) {
   if (typeof key === "number") {
     console.log(`Answer ${key}: ${value}`);
   }
 }
-// Quiz App────────────────────────────────────────────────────────────────────────
+//NOTE Quiz App
 // const answer = Number(prompt("Your Answer:"));
 const answer = 3;
 console.log(answer);
@@ -206,20 +286,21 @@ console.log(answer);
 // }
 console.log(question.get(question.get("correct") === answer));
 
-// Convert Map to Array────────────────────────────────────────────────────────────
+//NOTE Convert Map to Array
 
 console.log([...question.entries()]);
 console.log([...question.keys()]);
 console.log([...question.values()]);
+
 //ANCHOR  Maps
 */
 /* -------------------------------------------------------------------------- */
 /*                              Maps Fundamentals                             */
 /* -------------------------------------------------------------------------- */
 /*
-//new Map()
+//NOTE new Map()
 const rest = new Map();
-//.set()
+//NOTE .set()
 rest.set("name", "Classico Italiano");
 rest.set(1, "Firenze, Italy");
 console.log(rest.set(2, "Kerman,hematifar"));
@@ -234,23 +315,23 @@ rest
 // console.log(rest.get(true));
 // ────────────────────────────────────────────────────────────────────────────────
 const time = 21;
-//.get()
+//NOTE .get()
 console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
 // ────────────────────────────────────────────────────────────────────────────────
-//.has()
+//NOTE .has()
 console.log(rest.has("categories"));
 // ────────────────────────────────────────────────────────────────────────────────
-//.delete()
+//NOTE .delete()
 rest.delete(2);
 console.log(rest);
 // ────────────────────────────────────────────────────────────────────────────────
-//.size
+//NOTE .size
 console.log(rest.size);
 // ────────────────────────────────────────────────────────────────────────────────
-//.clear()
+//NOTE .clear()
 // rest.clear();
 // ────────────────────────────────────────────────────────────────────────────────
-//Does it Work?
+//NOTE Does it Work?
 rest.set([1,2],'Test');
 console.log(rest.get([1,2])); // Undefined beacause it is not the same in the heap
 
@@ -261,11 +342,13 @@ console.log(rest.get(arr));// now works beacause arr refers to same Place in the
 // usage of Map in Dom
 rest.set(document.querySelector('h1'),'Heading'); 
 */
+
 //ANCHOR Sets
 /* -------------------------------------------------------------------------- */
 /*                                    Sets                                    */
 /* -------------------------------------------------------------------------- */
 /*
+//NOTE new Set()
 const ordersSet = new Set([
   "Pasta",
   "Pasta",
@@ -294,8 +377,7 @@ console.log(ordersSet);
 
 for (const order of ordersSet) console.log(order);
 
-/* --------------------------------- example -------------------------------- 
-
+//NOTE Example
 const staff = ["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"];
 
 const staffUnique = [...new Set(staff)];
@@ -309,6 +391,7 @@ console.log(
 console.log(new Set('Amir Khaleghi').size);
 
 */
+
 //ANCHOR Challenge 2
 /* -------------------------------------------------------------------------- */
 /*                             Coding Challenge 2                             */
@@ -383,7 +466,7 @@ console.log("🚀 ~ file: script.js ~ line 120 ~ average", average);
 //       Odd of victory Bayern Munich: 1.33
 //       Odd of draw: 3.25
 //       Odd of victory Borrussia Dortmund: 6.5
-// Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: ANCHOR how the odds and the game objects have the same property names
+// Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT:  how the odds and the game objects have the same property names
 
 for (const [team, odd] of Object.entries(game.odds)) {
   const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
@@ -415,7 +498,7 @@ for (const [key, score] of entries) {
 /*              Looping Objects_ Object Keys, Values, and Entries             */
 /* -------------------------------------------------------------------------- */
 
-// // Property Names
+// // NOTE Property Names
 // //────────────────────────────────────────────────────────────────────────────────
 // const properties = Object.keys(openingHours);
 // console.log("🚀 ~ file: script.js ~ line 47 ~ properties", properties);
