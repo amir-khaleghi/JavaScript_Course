@@ -43,10 +43,31 @@ const restaurant = {
 // ────────────────────────────────────────────────────────────────────────────────
 // ────────────────────────────────────────────────────────────────────────────────
 
+//ANCHOR Working With Strings part3
+/* -------------------------------------------------------------------------- */
+/*                         Working With Strings part3                         */
+/* -------------------------------------------------------------------------- */
+//NOTE split()
+// ────────────────────────────────────────────────────────────────────────────────
+console.log('a+very+nice+string'.split('+')) // create a new array
+console.log('Jonas Schmedtmann'.split(' '))
+
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+console.log(firstName); 
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName); 
+const newName1 = ['Mr.', firstName, lastName.toUpperCase()].join('___');
+console.log(newName1);  
+
+
+
+
 //ANCHOR Working With Strings part2
 /* -------------------------------------------------------------------------- */
 /*                         Working With Strings part2                         */
 /* -------------------------------------------------------------------------- */
+/*
 const airline = "TAP Air Portugal";
 
 //NOTE toLowerCase()
@@ -126,7 +147,7 @@ const checkBaggage = function (items) {
 checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('Socks and camera');
 checkBaggage('Got some snacks and a gun for protection');
-
+*/
 //ANCHOR Working With Strings part1
 /* -------------------------------------------------------------------------- */
 /*                            Working With Strings part1                      */
