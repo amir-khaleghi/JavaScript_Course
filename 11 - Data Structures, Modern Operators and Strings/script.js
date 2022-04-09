@@ -47,21 +47,62 @@ const restaurant = {
 /* -------------------------------------------------------------------------- */
 /*                         Working With Strings part3                         */
 /* -------------------------------------------------------------------------- */
-//NOTE split()
+//NOTE split() join()
 // ────────────────────────────────────────────────────────────────────────────────
-console.log('a+very+nice+string'.split('+')) // create a new array
-console.log('Jonas Schmedtmann'.split(' '))
+console.log("a+very+nice+string".split("+")); // create a new array
+console.log("Jonas Schmedtmann".split(" "));
 
-const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
-console.log(firstName); 
+const [firstName, lastName] = "Jonas Schmedtmann".split(" ");
+console.log(firstName);
 
-const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
-console.log(newName); 
-const newName1 = ['Mr.', firstName, lastName.toUpperCase()].join('___');
-console.log(newName1);  
+const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" ");
+console.log(newName);
+const newName1 = ["Mr.", firstName, lastName.toUpperCase()].join("___");
+console.log(newName1);
 
+//NOTE function
+// ────────────────────────────────────────────────────────────────────────────────
+const capitalizeName = function (name) {
+  const names = name.split(" ");
+  const namesUpper = [];
+  console.log("🚀 ~ file: script.js ~ line 66 ~ capitalizeName ~ names", names);
 
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1).toLowerCase());
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(" "));
+};
+capitalizeName("jessica and smith davis");
+capitalizeName("amir kHaleghi dehghan");
 
+//NOTE padding: padStart, padEnd
+// ────────────────────────────────────────────────────────────────────────────────
+const message = "Go to gate 23!";
+console.log(message.padStart(20, "+").padEnd(30, "+"));
+console.log("Amir".padStart(20, "+").padEnd(30, "+"));
+
+const maskCreditCard = function (number) {
+  const str = number + "";
+  const last = str.slice(-4);
+  return last.padStart(str.length, "*");
+};
+
+console.log(maskCreditCard(51234123));
+console.log(maskCreditCard(341234123512313));
+console.log(maskCreditCard(341313231424534308));
+
+//NOTE Repeat
+const message2 = "Bad Weather... All Departures Delayed...";
+console.log(message2.repeat(5));   
+
+const planesInLine = function(n) {
+  console.log(`There are ${n} planes in Line ${'✈'.repeat(n)}`)
+}
+
+planesInLine(5)
+planesInLine(3)
+planesInLine(12)
 
 //ANCHOR Working With Strings part2
 /* -------------------------------------------------------------------------- */
